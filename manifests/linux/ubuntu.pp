@@ -1,5 +1,5 @@
 class nvidia::linux::ubuntu (
-	Integer[1] $driver_version,
+	$driver_version,
 ) {
 	$package_name = "nvidia-${driver_version}"
 
