@@ -6,7 +6,7 @@ class nvidia::linux::ubuntu (
 	# Ensure that our custom fact can run
 	ensure_resource('package', 'pciutils', {'ensure' => 'present' })
 
-	if $nvidiagfx {
+	if str2bool("$nvidiagfx") {
 		include apt
 
 		apt::ppa { 'ppa:graphics-drivers/ppa':
@@ -22,6 +22,11 @@ class nvidia::linux::ubuntu (
 		ensure_resource( 'package', $package_name, {
 			'ensure' => 'present',
 			require => Class['apt::update']
+		})
+	}
+	else {
+		ensure_resource( 'package', $package_name, {
+			'ensure' => 'purged',
 		})
 	}
 }
