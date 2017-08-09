@@ -1,5 +1,5 @@
 class nvidia (
-	Integer[1] $version = 352
+	$version = 352
 ) {
 
 	case $::kernel {

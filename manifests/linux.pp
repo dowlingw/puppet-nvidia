@@ -1,5 +1,5 @@
 class nvidia::linux (
-	Integer[1] $driver_version,
+	$driver_version,
 ) {
 
 	case $::operatingsystem {
